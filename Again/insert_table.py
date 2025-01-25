@@ -189,7 +189,6 @@ def insert_summary(connection, news_id, summary_text):
     data = (news_id, summary_text)
     execute_query(connection, query, data)
 
-# Example usage
 if __name__ == "__main__":
     conn = create_db_connection()
     if conn is not None:
