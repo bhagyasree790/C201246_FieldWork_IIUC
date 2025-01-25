@@ -71,14 +71,14 @@ def create_tables(connection):
         description TEXT
     );
     """
-    create_authors_table = """
+    create_publisher_table = """
     CREATE TABLE IF NOT EXISTS publishers (
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
         email VARCHAR(255) UNIQUE NOT NULL
     );
     """
-    create_editors_table = """
+    create_reporter_table = """
     CREATE TABLE IF NOT EXISTS reporters (
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
@@ -117,14 +117,12 @@ def create_tables(connection):
     );
     """
     execute_query(connection, create_categories_table)
-    execute_query(connection, create_authors_table)
-    execute_query(connection, create_editors_table)
+    execute_query(connection, create_publisher_table)
+    execute_query(connection, create_reporter_table)
     execute_query(connection, create_news_table)
     execute_query(connection, create_images_table)
     execute_query(connection, create_summaries_table)
 
-
-# Example usage
 if __name__ == "__main__":
     conn = create_db_connection()
     if conn is not None:
